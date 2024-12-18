@@ -1,0 +1,50 @@
+.avatars {
+  --avatar-count: 6;
+  --avatar-size: 100px;
+  --column-size: calc(var(--avatar-size) / 2);
+  --tansition-duration: 500ms;
+  display: grid;
+  grid-template-columns: repeat(var(--avatar-count), var(--column-size));
+
+  transition: grid-template-columns var(--tansition-duration);
+  transition-delay: var(--tansition-duration);
+
+/* If there is more than viwe width use scroll */
+
+  /* max-width: 50vw;
+  padding-block: 3.5rem;
+  overflow-x: auto; */
+}
+
+.avatars:hover,
+.avatars:focus-within {
+  --column-size: calc(var(--avatar-size) * 1.5);
+  transition-delay: 0ms;
+}
+
+.avatar {
+  width: var(--avatar-size);
+  height: var(--avatar-size);
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 100vw;
+  border: 5px solid white;
+  box-shadow: 0.25rem 0.25rem 0.5rem hsl(0 0% 0% / 0.2);
+
+  transition: scale var(--tansition-duration);
+}
+
+.avatar:hover, 
+.avatar:focus{
+    scale: 2;
+    z-index: 2;
+}
+
+@supports selector(:has(+*)){
+    .avatar:hover + .avatar,
+    .avatar:has( + .avatar:hover){
+        scale: 1.25;
+        /* border-color: lime; */
+    }
+}
+
