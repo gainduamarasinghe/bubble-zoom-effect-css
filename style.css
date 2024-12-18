@@ -1,3 +1,8 @@
+.topic {
+  display: flex;
+  justify-content: center;
+  text-transform: uppercase;
+}
 .avatars {
   --avatar-count: 6;
   --avatar-size: 100px;
@@ -9,7 +14,9 @@
   transition: grid-template-columns var(--tansition-duration);
   transition-delay: var(--tansition-duration);
 
-/* If there is more than viwe width use scroll */
+  justify-content: center;
+  padding: 10px;
+  /* If there is more than viwe width use scroll */
 
   /* max-width: 50vw;
   padding-block: 3.5rem;
@@ -34,17 +41,16 @@
   transition: scale var(--tansition-duration);
 }
 
-.avatar:hover, 
-.avatar:focus{
-    scale: 2;
-    z-index: 2;
+.avatar:hover,
+.avatar:focus {
+  scale: 2;
+  z-index: 2;
 }
 
-@supports selector(:has(+*)){
-    .avatar:hover + .avatar,
-    .avatar:has( + .avatar:hover){
-        scale: 1.25;
-        /* border-color: lime; */
-    }
+@supports selector(:has(+ *)) {
+  .avatar:hover + .avatar,
+  .avatar:has(+ .avatar:hover) {
+    scale: 1.25;
+    /* border-color: lime; */
+  }
 }
-
